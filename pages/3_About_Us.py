@@ -19,8 +19,9 @@ and career guidance to help SEN students overcome challenges and achieve their g
 We work closely with faculty and staff to create a campus culture that celebrates diversity\
 and values each student’s unique contributions.]''')
 
-st.markdown(''':orange[For more content details, please visit\
-[TP Special Educational Needs Support](https://www.tp.edu.sg/life-at-tp/special-educational-needs-sen-support.html").]''')
+st.markdown(''':orange[For more content details and information, please visit \
+[TP Special Educational Needs Support](https://www.tp.edu.sg/life-at-tp/special-educational-needs-sen-support.html") \
+and [Enabling Guide by SG Enable](https://www.enablingguide.sg/).]''')
 
 st.markdown(''':orange[This prototype is developed by Benedict Fernandez. Please feel free to give your comments, feedback & suggestion. Reach me at <bencmbit@gmail.com>]''')
 
