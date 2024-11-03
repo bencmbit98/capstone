@@ -14,9 +14,7 @@ from langchain.chat_models import ChatOpenAI
 from helper_functions import llm
 from helper_functions.utility import check_password
 
-
-
-# RAG Step 1: Document Loading ============================================================
+# RAG Step 1: Document Loading =============================================================
 def RAG_Load():
     webpage_urls = [
         'https://www.tp.edu.sg/life-at-tp/special-educational-needs-sen-support.html',
@@ -32,7 +30,7 @@ def RAG_Load():
     
     return final_text
 
-# RAG Step 2: Splitting and Chunking
+# RAG Step 2: Splitting and Chunking =======================================================
 def RAG_SplittingChunking(final_text):
     from langchain.text_splitter import RecursiveCharacterTextSplitter
     from langchain.docstore.document import Document # Import Document class
@@ -57,7 +55,7 @@ def RAG_SplittingChunking(final_text):
     return splitted_documents
 
 
-# RAG Step 3: Storage
+# RAG Step 3: Storage ================================================================================
 def RAG_Storage(splitted_documents):
     # An embeddings model is initialized using the OpenAIEmbeddings class.
     embeddings_model = OpenAIEmbeddings(model='text-embedding-ada-002')
@@ -79,11 +77,11 @@ def RAG_Storage(splitted_documents):
     # Peek at one of the documents in the vector store
     # vector_store._collection.peek(limit=1)
 
-# RAG Step 4: Retrieval
+# RAG Step 4: Retrieval =========================================================================
 # vector_store.similarity_search('taxi', k=3)
 # vector_store.similarity_search_with_relevance_scores('taxi', k=3)
 
-# RAG Step 5: Output
+# RAG Step 5: Output ============================================================================
 # result = qa_chain.invoke("How can get a taxi?")
 
 # region <--------- Streamlit App Configuration --------->
@@ -96,6 +94,10 @@ st.set_page_config(
 st.title("Supporting SEN Students")
 st.write("in Temasek Polytechnic")
 
+# Check if the password is correct.  
+if not check_password():  
+    st.stop()
+    
 # Main RAG Process Flow
 final_text = RAG_Load()
 splitted_documents = RAG_SplittingChunking(final_text)
