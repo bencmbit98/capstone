@@ -7,7 +7,8 @@ import tiktoken
 OPENAI_KEY = st.secrets['OPENAI_API_KEY']
 client = OpenAI(api_key=OPENAI_KEY)
 
-# This is the function for calling LLM
+# Helper Functions =============================================
+# This is the helper function for calling LLM
 def get_completion(prompt,
                    model="gpt-4o-mini",
                    temperature=0,
