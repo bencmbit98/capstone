@@ -10,6 +10,25 @@ contextually relevant answers to user queries. \
 Below is the detailed methodology for the chatbot’s development, structured in five sequential stages: \
 Document Loading, Splitting & Chunking, Storage, Retrieval, and Output.]''')
 
+st.markdown(''':pink[### Sub-Head]''')
+st.markdown(''':green[body]''')
+
+
+st.markdown(''':pink[### Sub-Head]''')
+st.markdown(''':green[body]''')
+
+st.markdown(''':pink[### Sub-Head]''')
+st.markdown(''':green[body]''')
+
+st.markdown(''':pink[### Sub-Head]''')
+st.markdown(''':green[body]''')
+
+st.markdown(''':pink[### Sub-Head]''')
+st.markdown(''':green[body]''')
+
+st.markdown(''':pink[### Sub-Head]''')
+st.markdown(''':green[body]''')
+
 st.markdown(''':orange[For more content details and information, please visit \
 [TP Special Educational Needs Support](https://www.tp.edu.sg/life-at-tp/special-educational-needs-sen-support.html") \
 and [Enabling Guide by SG Enable](https://www.enablingguide.sg/).]''')
