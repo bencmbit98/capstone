@@ -153,11 +153,16 @@ st.set_page_config(
     page_title="ABC Capstone Project"
 )
 # endregion <--------- Streamlit App Configuration --------->
+
 st.title("Supporting SEN Students")
 st.write("in Temasek Polytechnic")
+
+# Main RAG Process Flow
 final_text = RAG_Load()
 splitted_documents = RAG_SplittingChunking(final_text)
 qa_chain = RAG_Storage(splitted_documents)
+
+# Interface
 form = st.form(key="form")
 form.subheader("Ask Me Anything")
 
