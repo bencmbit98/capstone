@@ -164,7 +164,7 @@ form.subheader("Ask Me Anything")
 user_prompt = form.text_area("Related to Special Educational Needs Support: ", height=50)
 
 if form.form_submit_button("Send"):
-    st.toast(f"Please wait while I seek answers to your '{user_prompt}'")   
+    st.toast(f"Please wait while I seek answers to your query '{user_prompt}'")   
     response = qa_chain.invoke(user_prompt)
     answer = response["result"]
     st.write(answer)
