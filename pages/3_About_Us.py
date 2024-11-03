@@ -8,13 +8,19 @@ st.set_page_config(
 # endregion <--------- Streamlit App Configuration --------->
 
 st.title("About this App")
-st.markdown(''':green[At Temasek Polytechnic (TP), we are committed to providing an inclusive, \
-supportive, and empowering environment for all students. \
-We believe that every student should have equal opportunities to succeed, grow, \
-and thrive in their educational journey. \
-Our Special Educational Needs (SEN) Support Office is dedicated to assisting students \
-with diverse learning needs, ensuring they feel welcome, respected, \
-and supported throughout their time at TP.]''')
+st.markdown(''':green[At Temasek Polytechnic (TP), we are dedicated to fostering an inclusive\
+and supportive learning environment for all students. \
+Through our Special Educational Needs (SEN) Support Office, \
+we offer tailored services that help students with diverse learning needs succeed academically\
+and thrive personally.]''')
+
+st.markdown(''':green[We provide individualized support plans, accessible learning resources,\
+and career guidance to help SEN students overcome challenges and achieve their goals.\
+We work closely with faculty and staff to create a campus culture that celebrates diversity\
+and values each student’s unique contributions.]''')
+
+st.markdown(''':orange[For more content details, please visit\
+[TP Special Educational Needs Support](https://www.tp.edu.sg/life-at-tp/special-educational-needs-sen-support.html").]''')
 
 st.markdown(''':orange[Our SEN Support Office provides a range of specialized services and \
 accommodations tailored to the needs of students with disabilities or other learning needs. \
