@@ -3,7 +3,7 @@ import streamlit as st
 st.header("Methodology for RAG Chatbot Development")
 st.write("Prototype by Benedict Fernandez (TP)")
 
-st.markdown(''':green[This chatbot prototype uses a Retrieval-Augmented Generation (RAG) model \
+st.markdown(''':green[This chatbot prototype uses a **naive Retrieval-Augmented Generation (RAG) model** \
 to generate responses based on content from three external websites. \
 By combining retrieval and generation, the model provides accurate, \
 contextually relevant answers to user queries. \
