@@ -7,10 +7,6 @@ st.set_page_config(
 )
 # endregion <--------- Streamlit App Configuration --------->
 
-st.title("Supporting SEN Students")
-st.write("in Temasek Polytechnic")
-
-st.header("# About US")
 st.title("Methodology")
 st.write("This is a Streamlit App that demonstrates how to use the OpenAI API to generate text completions.")
 
