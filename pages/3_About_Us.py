@@ -8,13 +8,13 @@ st.set_page_config(
 # endregion <--------- Streamlit App Configuration --------->
 
 st.title("About this App")
-st.markdown('''green[At Temasek Polytechnic (TP), we are committed to providing an inclusive, \
+st.markdown(```green[At Temasek Polytechnic (TP), we are committed to providing an inclusive, \
 supportive, and empowering environment for all students. \
 We believe that every student should have equal opportunities to succeed, grow, \
 and thrive in their educational journey. \
 Our Special Educational Needs (SEN) Support Office is dedicated to assisting students \
 with diverse learning needs, ensuring they feel welcome, respected, \
-and supported throughout their time at TP.]''')
+and supported throughout their time at TP.]```)
 
 st.write("Our SEN Support Office provides a range of specialized services and \
 accommodations tailored to the needs of students with disabilities or other learning needs. \
