@@ -8,7 +8,7 @@ st.set_page_config(
 # endregion <--------- Streamlit App Configuration --------->
 
 st.title("About this App")
-st.markdown(```green[At Temasek Polytechnic (TP), we are committed to providing an inclusive, \
+st.markdown(```:green[At Temasek Polytechnic (TP), we are committed to providing an inclusive, \
 supportive, and empowering environment for all students. \
 We believe that every student should have equal opportunities to succeed, grow, \
 and thrive in their educational journey. \
