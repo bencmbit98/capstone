@@ -8,11 +8,11 @@ st.set_page_config(
 # endregion <--------- Streamlit App Configuration --------->
 
 st.title("About this App")
-st.write("At Temasek Polytechnic (TP), we are committed to providing an inclusive, 
-supportive, and empowering environment for all students. 
-We believe that every student should have equal opportunities to succeed, grow, 
-and thrive in their educational journey. 
-Our Special Educational Needs (SEN) Support Office is dedicated to assisting students 
+st.write("At Temasek Polytechnic (TP), we are committed to providing an inclusive, \
+supportive, and empowering environment for all students. \
+We believe that every student should have equal opportunities to succeed, grow, \
+and thrive in their educational journey. \
+Our Special Educational Needs (SEN) Support Office is dedicated to assisting students \
 with diverse learning needs, ensuring they feel welcome, respected, and supported throughout their time at TP.")
 
 
