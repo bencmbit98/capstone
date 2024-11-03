@@ -14,6 +14,17 @@ from langchain.chat_models import ChatOpenAI
 from helper_functions import llm
 from helper_functions.utility import check_password
 
+# Functions for Counting Tokens
+def count_tokens(text):
+    encoding = tiktoken.encoding_for_model("gpt-4o-mini")
+    return len(encoding.encode(text))
+
+def count_tokens_from_message(messages):
+    encoding = tiktoken.encoding_for_model("gpt-4o-mini")
+    value = ' '.join([x.get('content') for x in messages])
+    return len(encoding.encode(value))
+
+
 # RAG Step 1: Document Loading =============================================================
 def RAG_Load():
     webpage_urls = [
