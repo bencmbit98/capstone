@@ -10,23 +10,19 @@ contextually relevant answers to user queries. \
 Below is the detailed methodology for the chatbot’s development, structured in five sequential stages: \
 Document Loading, Splitting & Chunking, Storage, Retrieval, and Output.]''')
 
-st.markdown(''':orange[## Sub-Head]''')
+st.markdown(''':orange[1. Document Loading]''')
 st.markdown(''':green[body]''')
 
-
-st.markdown(''':orange[### Sub-Head]''')
+st.markdown(''':orange[2. Splitting & Chunking]''')
 st.markdown(''':green[body]''')
 
-st.markdown(''':orange[### Sub-Head]''')
+st.markdown(''':orange[3. Storage]''')
 st.markdown(''':green[body]''')
 
-st.markdown(''':orange[### Sub-Head]''')
+st.markdown(''':orange[4. Retrieval]''')
 st.markdown(''':green[body]''')
 
-st.markdown(''':orange[### Sub-Head]''')
-st.markdown(''':green[body]''')
-
-st.markdown(''':orange[### Sub-Head]''')
+st.markdown(''':orange[5. Output]''')
 st.markdown(''':green[body]''')
 
 st.markdown(''':orange[For more content details and information, please visit \
