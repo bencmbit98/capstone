@@ -15,6 +15,12 @@ and thrive in their educational journey. \
 Our Special Educational Needs (SEN) Support Office is dedicated to assisting students \
 with diverse learning needs, ensuring they feel welcome, respected, and supported throughout their time at TP.")
 
+st.write("Our SEN Support Office provides a range of specialized services and \
+accommodations tailored to the needs of students with disabilities or other learning needs. \
+This includes academic support, accessible facilities, and collaboration \
+with faculty to make necessary adjustments that facilitate learning. \
+We also offer career guidance, social and emotional support, and accessibility resources \
+to ensure that every student can participate fully in campus life.")
 
 st.write("**Important Notice**")
 st.write("This web application is a prototype developed for educational purposes only. The information provided here is NOT intended for real-world usage and should not be relied upon for making any decisions, especially those related to financial, legal, or healthcare matters.")
