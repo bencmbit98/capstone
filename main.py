@@ -153,7 +153,6 @@ st.set_page_config(
     page_title="ABC Capstone Project"
 )
 # endregion <--------- Streamlit App Configuration --------->
-
 st.title("Support SEN Student")
 st.write("in Temasek Polytechnic")
 final_text = RAG_Load()
