@@ -156,20 +156,16 @@ st.set_page_config(
 
 st.title("Support SEN Student")
 st.write("in Temasek Polytechnic")
-
 final_text = RAG_Load()
 splitted_documents = RAG_SplittingChunking(final_text)
 qa_chain = RAG_Storage(splitted_documents)
-
 form = st.form(key="form")
 form.subheader("Prompt")
 
 user_prompt = form.text_area("Ask me anything: ", height=200)
 
 if form.form_submit_button("Submit"):
-    
     st.toast(f"You asked - {user_prompt}")
-
     st.divider()   
     response = qa_chain.invoke(user_prompt)
     st.write(response)
