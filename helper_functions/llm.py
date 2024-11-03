@@ -51,16 +51,6 @@ def get_completion_by_messages(messages, model="gpt-4o-mini", temperature=0, top
     )
     return response.choices[0].message.content
 
-# Functions for Counting Tokens
-def count_tokens(text):
-    encoding = tiktoken.encoding_for_model("gpt-4o-mini")
-    return len(encoding.encode(text))
-
-def count_tokens_from_message(messages):
-    encoding = tiktoken.encoding_for_model("gpt-4o-mini")
-    value = ' '.join([x.get('content') for x in messages])
-    return len(encoding.encode(value))
-
 # Function for Generating Embedding
 def get_embedding(input, model='text-embedding-3-small'):
     response = client.embeddings.create(
