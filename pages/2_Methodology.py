@@ -10,7 +10,7 @@ contextually relevant answers to user queries. \
 Below is the detailed methodology for the chatbot’s development, structured in five sequential stages: \
 Document Loading, Splitting & Chunking, Storage, Retrieval, and Output.]''')
 
-st.markdown(''':orange[### Sub-Head]''')
+st.markdown(''':orange[## Sub-Head]''')
 st.markdown(''':green[body]''')
 
 
