@@ -10,23 +10,23 @@ contextually relevant answers to user queries. \
 Below is the detailed methodology for the chatbot’s development, structured in five sequential stages: \
 Document Loading, Splitting & Chunking, Storage, Retrieval, and Output.]''')
 
-st.markdown(''':pink[### Sub-Head]''')
+st.markdown(''':orange[### Sub-Head]''')
 st.markdown(''':green[body]''')
 
 
-st.markdown(''':pink[### Sub-Head]''')
+st.markdown(''':orange[### Sub-Head]''')
 st.markdown(''':green[body]''')
 
-st.markdown(''':pink[### Sub-Head]''')
+st.markdown(''':orange[### Sub-Head]''')
 st.markdown(''':green[body]''')
 
-st.markdown(''':pink[### Sub-Head]''')
+st.markdown(''':orange[### Sub-Head]''')
 st.markdown(''':green[body]''')
 
-st.markdown(''':pink[### Sub-Head]''')
+st.markdown(''':orange[### Sub-Head]''')
 st.markdown(''':green[body]''')
 
-st.markdown(''':pink[### Sub-Head]''')
+st.markdown(''':orange[### Sub-Head]''')
 st.markdown(''':green[body]''')
 
 st.markdown(''':orange[For more content details and information, please visit \
@@ -34,4 +34,5 @@ st.markdown(''':orange[For more content details and information, please visit \
 and [Enabling Guide by SG Enable](https://www.enablingguide.sg/).]''')
 
 st.markdown(''':orange[This prototype is developed by Benedict Fernandez. \
-Please feel free to give your comments, feedback & suggestion by reaching me at <bencmbit@gmail.com>]''')
+Please feel free to give your comments, feedback & suggestion by reaching me at <bencmbit@gmail.com>. \
+I would like to give a special thanks to Mr. Nick Tan (GovTech) and my fellow learners at our pilot bootcamp.]''')
