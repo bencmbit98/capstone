@@ -161,12 +161,10 @@ qa_chain = RAG_Storage(splitted_documents)
 form = st.form(key="form")
 form.subheader("Ask Me Anything")
 
-user_prompt = form.text_area("Related to Special Educational Needs Support: ", height=100)
+user_prompt = form.text_area("Related to Special Educational Needs Support: ", height=70)
 
 if form.form_submit_button("Send"):
-    st.toast(f"You asked - {user_prompt}")
-    st.divider()   
+    st.toast(f"Please wait while I seek answers to your '{user_prompt}'")   
     response = qa_chain.invoke(user_prompt)
     answer = response["result"]
     st.write(answer)
-    st.divider()
