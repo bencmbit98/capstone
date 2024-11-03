@@ -4,14 +4,7 @@ from dotenv import load_dotenv
 from openai import OpenAI
 import tiktoken
 
-if load_dotenv('.env'):
-   # For local development
-   OPENAI_KEY = os.getenv('OPENAI_API_KEY')
-else:
-   OPENAI_KEY = st.secrets['OPENAI_API_KEY']
-
-
-# Pass the API Key to the OpenAI Client
+OPENAI_KEY = st.secrets['OPENAI_API_KEY']
 client = OpenAI(api_key=OPENAI_KEY)
 
 # This is the function for calling LLM
