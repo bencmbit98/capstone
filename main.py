@@ -153,19 +153,20 @@ st.set_page_config(
     page_title="ABC Capstone Project"
 )
 # endregion <--------- Streamlit App Configuration --------->
-st.title("Support SEN Student")
+st.title("Supporting SEN Students")
 st.write("in Temasek Polytechnic")
 final_text = RAG_Load()
 splitted_documents = RAG_SplittingChunking(final_text)
 qa_chain = RAG_Storage(splitted_documents)
 form = st.form(key="form")
-form.subheader("Prompt")
+form.subheader("Ask Me Anything")
 
-user_prompt = form.text_area("Ask me anything: ", height=200)
+user_prompt = form.text_area("Related to Special Educational Needs Support: ", height=100)
 
-if form.form_submit_button("Submit"):
+if form.form_submit_button("Send"):
     st.toast(f"You asked - {user_prompt}")
     st.divider()   
     response = qa_chain.invoke(user_prompt)
-    st.write(response)
+    answer = response["result"]
+    st.write(answer)
     st.divider()
