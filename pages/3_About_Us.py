@@ -22,12 +22,7 @@ and values each student’s unique contributions.]''')
 st.markdown(''':orange[For more content details, please visit\
 [TP Special Educational Needs Support](https://www.tp.edu.sg/life-at-tp/special-educational-needs-sen-support.html").]''')
 
-st.markdown(''':orange[Our SEN Support Office provides a range of specialized services and \
-accommodations tailored to the needs of students with disabilities or other learning needs. \
-This includes academic support, accessible facilities, and collaboration \
-with faculty to make necessary adjustments that facilitate learning. \
-We also offer career guidance, social and emotional support, and accessibility resources \
-to ensure that every student can participate fully in campus life.]''')
+st.markdown(''':orange[This prototype is developed by Benedict Fernandez. Please feel free to give your comments, feedback & suggestion. Reach me at <bencmbit@gmail.com>]''')
 
 st.markdown('''**Important Notice**''')
 st.markdown(''':red[This web application is a prototype developed for educational purposes only. \
