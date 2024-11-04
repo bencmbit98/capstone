@@ -33,9 +33,7 @@ st.markdown(''':green[body]''')
 st.markdown(''':orange[5. Output]''')
 st.markdown(''':green[body]''')
 
-st.markdown(''':orange[For more content details and information, please visit \
-[TP Special Educational Needs Support](https://www.tp.edu.sg/life-at-tp/special-educational-needs-sen-support.html") \
-and [Enabling Guide by SG Enable](https://www.enablingguide.sg/).]''')
+st.markdown(''':orange[For more content details and information, please visit [TP Special Educational Needs Support](https://www.tp.edu.sg/life-at-tp/special-educational-needs-sen-support.html") and [Enabling Guide by SG Enable](https://www.enablingguide.sg/).]''')
 
 st.markdown(''':orange[This prototype is developed by Benedict Fernandez. \
 Please feel free to give your comments, feedback & suggestion by reaching me at <bencmbit@gmail.com>. \
