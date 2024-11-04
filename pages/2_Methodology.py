@@ -35,4 +35,4 @@ st.markdown(''':green[body]''')
 
 st.markdown(''':orange[For more content details and information, please visit [TP Special Educational Needs Support](https://www.tp.edu.sg/life-at-tp/special-educational-needs-sen-support.html) and [Enabling Guide by SG Enable](https://www.enablingguide.sg/).]''')
 
-st.markdown(''':orange[This prototype is developed by Benedict Fernandez. Please feel free to give your comments, feedback & suggestions by reaching me at <bencmbit@gmail.com>. I would like to give my special thanks to Mr. Nick Tan (GovTech) and my fellow learners at our pilot programme.]''')
+st.markdown(''':orange[This prototype is developed by Benedict Fernandez. Please feel free to give your comments, feedback & suggestions by reaching me at <bencmbit@gmail.com>. I would like to give my special thanks to Mr. Nick Tan from GovTech and my fellow learners at our pilot programme.]''')
