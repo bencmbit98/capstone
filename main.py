@@ -12,7 +12,7 @@ from langchain.chains import RetrievalQA
 from langchain.chat_models import ChatOpenAI
 
 from helper_functions import llm
-# from helper_functions.utility import check_password
+from helper_functions.utility import check_password
 
 # Helper Functions =============================================
 # This is the helper function for calling LLM
