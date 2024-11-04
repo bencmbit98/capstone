@@ -11,7 +11,10 @@ Below is the detailed methodology for the chatbot’s development, structured in
 Document Loading, Splitting & Chunking, Storage, Retrieval, and Output.]''')
 
 st.markdown(''':orange[1. Document Loading]''')
-st.markdown(''':green[body]''')
+st.markdown('''In this initial stage, the content from three specified websites is fetched \
+and prepared for further processing. Using requests and **BeautifulSoup** libraries in Python, \
+we retrieve the HTML content of each web page, then clean and parse the text to focus \
+on the relevant information.''')
 
 st.markdown(''':orange[2. Splitting & Chunking]''')
 st.markdown(''':green[body]''')
