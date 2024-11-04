@@ -158,8 +158,8 @@ st.title("Supporting SEN Students")
 st.write("in Temasek Polytechnic")
 
 # Check if the password is correct.  
-# if not check_password():  
-#    st.stop()
+if not check_password():  
+    st.stop()
     
 # Main RAG Process Flow
 final_text = RAG_Load()
