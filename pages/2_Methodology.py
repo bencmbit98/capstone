@@ -17,8 +17,7 @@ we retrieve the HTML content of each web page, then clean and parse the text to 
 on the relevant information.
 * Fetch content from each URL using requests.
 * Parse the HTML with BeautifulSoup, extracting the main text content while removing any irrelevant HTML tags and navigation elements.
-* Consolidate the content from all sources into a single text corpus, which will be processed in the next stages.
-\''')
+* Consolidate the content from all sources into a single text corpus, which will be processed in the next stages.''')
 
 st.markdown(''':orange[Splitting and Chunking]''')
 st.markdown(''':green[body]''')
