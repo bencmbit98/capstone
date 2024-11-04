@@ -19,8 +19,18 @@ on the relevant information.
 * Parse the HTML with BeautifulSoup, extracting the main text content while removing any irrelevant HTML tags and navigation elements.
 * Consolidate the content from all sources into a single text corpus, which will be processed in the next stages.''')
 
-st.markdown(''':orange[Splitting and Chunking]''')
-st.markdown(''':green[body]''')
+st.markdown(''':orange[2. Splitting and Chunking]''')
+st.markdown('''Given the potential length of the extracted documents, \
+splitting and chunking is crucial to ensure the data fits within \
+the token limits of the language model and can be effectively retrieved. \
+Using LangChain’s RecursiveCharacterTextSplitter, \
+we break down the text into smaller, manageable chunks.
+* Use the RecursiveCharacterTextSplitter class to split the text into chunks, \
+setting a maximum chunk size (e.g., 500 tokens) with some overlap \
+between chunks to preserve context.
+* Store each chunk as a Document object with metadata indicating \
+the source URL and chunk position. \
+This allows for traceability and retrieval of the most relevant chunks later.''')
 
 st.markdown(''':orange[3. Storage]''')
 st.markdown(''':green[body]''')
