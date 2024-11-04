@@ -176,6 +176,12 @@ if form.form_submit_button("Send"):
     st.toast(f"Please wait while I seek answers to your query '{user_prompt}'")   
     response = qa_chain.invoke(user_prompt)
     answer = response["result"]
+    # Check if the answer is empty or lacks relevant information
+    if not answer or "I'm sorry" in answer or "I don't know" in answer:
+        answer = (
+            "I couldn’t find a specific answer to your question in the available information. "
+            "However, feel free to reach out to our support team or check the available resources for further assistance."
+        )
     st.write(answer)
     if st.button("Hmm... Thanks! You have answered my query!!"):
         st.toast("Thank you for your compliments!")
