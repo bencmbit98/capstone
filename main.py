@@ -177,7 +177,7 @@ if form.form_submit_button("Send"):
     response = qa_chain.invoke(user_prompt)
     answer = response["result"]
     st.write(answer)
-    if form.form_submit_button("OK! I am happy with your answers!"):
+    if button("OK! I am happy with your answers!"):
         st.toast("Thank you for your compliments!")
         st.balloons()
     with st.expander("Important Disclaimer"):
