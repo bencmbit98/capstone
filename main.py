@@ -161,25 +161,26 @@ st.write("in Temasek Polytechnic")
 if not check_password():  
     st.stop()
     
-# Main RAG Process Flow
+# Main RAG Process Flow ===================================#
+# Stage 1 : Document Loading
 final_text = RAG_Load()
+# Stage 2 : Splitting and Chunking
 splitted_documents = RAG_SplittingChunking(final_text)
+# Stage 3 : Storage
 qa_chain = RAG_Storage(splitted_documents)
-
-# Interface
+# Stage 4 and 5 : Retrieval and Output Interface
 form = st.form(key="form")
 form.subheader("Ask Me Anything")
-
 user_prompt = form.text_area("Related to Special Educational Needs (SEN) Support: ", height=50)
-
 if form.form_submit_button("Send"):
     st.toast(f"Please wait while I seek answers to your query '{user_prompt}'")   
     response = qa_chain.invoke(user_prompt)
     answer = response["result"]
     st.write(answer)
     if st.button("OK! I am happy with your answers!"):
-      st.balloons()
+        st.toast("Thank you for your compliments!")
+        st.balloons()
     with st.expander("Important Disclaimer"):
-      st.write("IMPORTANT NOTICE: This web application is a prototype developed for educational purposes only. The information provided here is NOT intended for real-world usage and should not be relied upon for making any decisions, especially those related to financial, legal, or healthcare matters.")
-      st.write("Furthermore, please be aware that the LLM may generate inaccurate or incorrect information. You assume full responsibility for how you use any generated output.")
-      st.write("Always consult with qualified professionals for accurate and personalized advice.")
+        st.write("IMPORTANT NOTICE: This web application is a prototype developed for educational purposes only. The information provided here is NOT intended for real-world usage and should not be relied upon for making any decisions, especially those related to financial, legal, or healthcare matters.")
+        st.write("Furthermore, please be aware that the LLM may generate inaccurate or incorrect information. You assume full responsibility for how you use any generated output.")
+        st.write("Always consult with qualified professionals for accurate and personalized advice.")
