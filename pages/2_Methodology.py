@@ -20,7 +20,7 @@ on the relevant information.
 * Consolidate the content from all sources into a single text corpus, which will be processed in the next stages.
 \''')
 
-st.markdown(''':orange[2. Splitting & Chunking]''')
+st.markdown(''':orange[2. Splitting and Chunking]''')
 st.markdown(''':green[body]''')
 
 st.markdown(''':orange[3. Storage]''')
