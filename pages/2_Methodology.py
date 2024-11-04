@@ -33,15 +33,44 @@ the source URL and chunk position. \
 This allows for traceability and retrieval of the most relevant chunks later.''')
 
 st.markdown(''':orange[3. Storage]''')
-st.markdown(''':green[body]''')
+st.markdown('''The next step is to store these chunks as vector embeddings \
+in a vector database, enabling efficient similarity search. \
+We use OpenAI’s embedding model to convert each chunk into \
+high-dimensional vector representations, \
+then store these embeddings in a local vector storage FAISS \
+accessible through LangChain.
+* Initialize OpenAI embeddings using OpenAIEmbeddings.
+* Generate embeddings for each text chunk.
+* Store the embeddings in a vector store FAISS where \
+each embedding is associated with the original document chunk \
+and metadata. This setup enables fast retrieval of relevant content \
+based on semantic similarity to a query.''')
 
 st.markdown(''':orange[4. Retrieval]''')
-st.markdown(''':green[body]''')
+st.markdown('''In this stage, when a user submits a query, \
+the chatbot retrieves relevant document chunks from the vector store. \
+The query is converted into an embedding and compared against the stored \
+embeddings to find the top-matching chunks.
+* Embed the user’s query using the same OpenAI embedding model.
+* Search the vector store for document chunks that closely match \
+the query embedding.
+* Retrieve the top-k relevant chunks based on cosine similarity, \
+which will be used as context for generating a response.''')
 
 st.markdown(''':orange[5. Output]''')
-st.markdown(''':green[body]''')
+st.markdown('''Finally, the retrieved chunks are used as context \
+to generate a response through a language model. Using OpenAI’s 
+gpt-4 model in LangChain’s RetrievalQA chain, \
+the chatbot constructs a coherent answer based on the information \
+in the retrieved chunks.
+*Pass the retrieved chunks along with the user’s \
+query as input to the language model using \
+LangChain’s RetrievalQA chain.
+* Generate a response that synthesizes information \
+from the relevant chunks to directly address the query.
+* Display the response to the user, completing the interaction''')
 
-st.markdown('''For more content details and information, \
+st.markdown('''For more domain-based content details and information, \
 please visit [TP Special Educational Needs Support]\
 (https://www.tp.edu.sg/life-at-tp/special-educational-needs-sen-support.html) and\
 [Enabling Guide by SG Enable](https://www.enablingguide.sg/).''')
