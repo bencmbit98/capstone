@@ -10,9 +10,13 @@ from langchain.vectorstores import FAISS
 from langchain.embeddings import OpenAIEmbeddings
 from langchain.chains import RetrievalQA
 from langchain.chat_models import ChatOpenAI
+from langchain.document_loaders import PyPDFDirectoryLoader
+from langchain.docstore.document import Document # Import Document class
+from langchain.text_splitter import RecursiveCharacterTextSplitter
 
-from helper_functions import llm
-from helper_functions.utility import check_password
+# from helper_functions import llm
+# from logics.customer_query_handler import process_user_message
+# from helper_functions.utility import check_password
 
 # Helper Functions =============================================
 # This is the helper function for calling LLM
@@ -58,14 +62,6 @@ def get_completion_by_messages(messages, model="gpt-4o-mini", temperature=0, top
     )
     return response.choices[0].message.content
 
-# Function for Generating Embedding
-def get_embedding(input, model='text-embedding-3-small'):
-    response = client.embeddings.create(
-        input=input,
-        model=model
-    )
-    return [x.embedding for x in response.data]
-
 # Functions for Counting Tokens
 def count_tokens(text):
     encoding = tiktoken.encoding_for_model("gpt-4o-mini")
@@ -76,8 +72,15 @@ def count_tokens_from_message(messages):
     value = ' '.join([x.get('content') for x in messages])
     return len(encoding.encode(value))
 
+# Function for Generating Embedding
+def get_embedding(input, model='text-embedding-3-small'):
+    response = client.embeddings.create(
+        input=input,
+        model=model
+    )
+    return [x.embedding for x in response.data]
 
-# RAG Step 1: Document Loading =============================================================
+# RAG Step 1: Document Loading ============================================================
 def RAG_Load():
     webpage_urls = [
         'https://www.tp.edu.sg/life-at-tp/special-educational-needs-sen-support.html',
@@ -85,18 +88,27 @@ def RAG_Load():
         'https://www.enablingguide.sg/im-looking-for-disability-support/child-adult-care',
         'https://www.enablingguide.sg/im-looking-for-disability-support/training-employment']
     
-    final_text = ""
+    all_documents = []
+    
     for url in webpage_urls:
         response = requests.get(url)
         soup = bs4.BeautifulSoup(response.content, 'html.parser')
-        final_text += soup.text.replace('\n', '')
+        text = soup.text.replace('\n', ' ')
+        # Wrap the web text in a Document object to match PDF format
+        all_documents.append(Document(page_content=text, metadata={"source": url}))
     
-    return final_text
+    # --- Part B: Load from PDFs ---
+    pdf_loader = PyPDFDirectoryLoader("data/")
+    pdf_docs = pdf_loader.load()
+    
+    # Combine both lists
+    all_documents.extend(pdf_docs)
+    
+    return all_documents
 
-# RAG Step 2: Splitting and Chunking =======================================================
-def RAG_SplittingChunking(final_text):
+# RAG Step 2: Splitting and Chunking
+def RAG_SplittingChunking(all_documents):
     from langchain.text_splitter import RecursiveCharacterTextSplitter
-    from langchain.docstore.document import Document # Import Document class
 
     text_splitter = RecursiveCharacterTextSplitter(
         separators=["\n\n", "\n", " ", ""],
@@ -105,20 +117,15 @@ def RAG_SplittingChunking(final_text):
         length_function=count_tokens
     )
 
-    # Create a Document object with the text content
-    document = Document(page_content=final_text)
-
-    # Now pass the Document object to split_documents
-    splitted_documents = text_splitter.split_documents([document]) # Pass a list containing the Document object
-  
-    # Show the number of tokens in each of the splitted documents
-    # for doc in splitted_documents:
-    #    print(count_tokens(doc.page_content))
+    # Correct Action: Pass the list of documents directly to the splitter.
+    # We remove the "document = Document(...)" line because all_documents 
+    # already contains the processed data from your RAG_Load function.
+    splitted_documents = text_splitter.split_documents(all_documents)
 
     return splitted_documents
 
 
-# RAG Step 3: Storage ================================================================================
+# RAG Step 3: Storage
 def RAG_Storage(splitted_documents):
     # An embeddings model is initialized using the OpenAIEmbeddings class.
     embeddings_model = OpenAIEmbeddings(model='text-embedding-ada-002')
@@ -140,11 +147,11 @@ def RAG_Storage(splitted_documents):
     # Peek at one of the documents in the vector store
     # vector_store._collection.peek(limit=1)
 
-# RAG Step 4: Retrieval =========================================================================
+# RAG Step 4: Retrieval
 # vector_store.similarity_search('taxi', k=3)
 # vector_store.similarity_search_with_relevance_scores('taxi', k=3)
 
-# RAG Step 5: Output ============================================================================
+# RAG Step 5: Output
 # result = qa_chain.invoke("How can get a taxi?")
 
 # region <--------- Streamlit App Configuration --------->
@@ -154,39 +161,26 @@ st.set_page_config(
 )
 # endregion <--------- Streamlit App Configuration --------->
 
-st.title("Supporting SEN Students")
+st.title("Support SEN Student")
 st.write("in Temasek Polytechnic")
-
 # Check if the password is correct.  
 if not check_password():  
     st.stop()
-    
-# Main RAG Process Flow ===================================#
-# Stage 1 : Document Loading
+
 final_text = RAG_Load()
-# Stage 2 : Splitting and Chunking
 splitted_documents = RAG_SplittingChunking(final_text)
-# Stage 3 : Storage
 qa_chain = RAG_Storage(splitted_documents)
-# Stage 4 and 5 : Retrieval and Output Interface
+
 form = st.form(key="form")
-form.subheader("Ask Me Anything")
-user_prompt = form.text_area("Related to Special Educational Needs (SEN) Support: ", height=50)
-if form.form_submit_button("Send"):
-    st.toast(f"Please wait while I seek answers to your query '{user_prompt}'")   
+form.subheader("Prompt")
+
+user_prompt = form.text_area("Ask me anything: ", height=200)
+
+if form.form_submit_button("Submit"):
+    
+    st.toast(f"You asked - {user_prompt}")
+
+    st.divider()   
     response = qa_chain.invoke(user_prompt)
-    answer = response["result"]
-    # Check if the answer is empty or lacks relevant information
-    if not answer or "I'm sorry" in answer or "I don't know" in answer:
-        answer = (
-            "I couldn’t find a specific answer to your question in the available information. "
-            "However, feel free to reach out to our support team or check the available resources for further assistance."
-        )
-    st.write(answer)
-    if st.button("Hmm... Thanks! You have answered my query!!"):
-        st.toast("Thank you for your compliments!")
-        st.balloons()
-    with st.expander("Important Disclaimer"):
-        st.write("IMPORTANT NOTICE: This web application is a prototype developed for educational purposes only. The information provided here is NOT intended for real-world usage and should not be relied upon for making any decisions, especially those related to financial, legal, or healthcare matters.")
-        st.write("Furthermore, please be aware that the LLM may generate inaccurate or incorrect information. You assume full responsibility for how you use any generated output.")
-        st.write("Always consult with qualified professionals for accurate and personalized advice.")
+    st.write(response)
+    st.divider()
